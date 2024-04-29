@@ -1,0 +1,15 @@
+// we have @comment available in the view
+// Use $() to create HTML method by passing string w/ html
+
+var comment_edit_form = $("<%= j(render 'form', comment: @comment) %>");
+
+// Hide so when it's edited it doesn't appear
+comment_edit_form.hide();
+
+// hide comment
+var comment_list_item = $("#<%= dom_id(@comment) %>");
+comment_list_item.hide();
+
+// show editor
+comment_list_item.before(comment_edit_form);
+comment_edit_form.slideDown();

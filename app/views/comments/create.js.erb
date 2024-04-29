@@ -7,6 +7,7 @@ var added_comment = $("<%= j(render @comment) %>");
 added_comment.hide();
 
 // use before() jQuery method to insert the comment into the DOM just before the form for a new comment
+
 $("#<%= dom_id(@comment.photo) %>_new_comment_form").before(added_comment);
 
 //cool animation to show the comment

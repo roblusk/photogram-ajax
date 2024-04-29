@@ -1,0 +1,15 @@
+// we should still have @comment available
+
+var updated_comment = $("<%= j(render @comment) %>");
+
+// Hide so when it's updated it doesn't initially appear
+updated_comment.hide();
+
+// hide the form
+var comment_edit_form = $("#<%= dom_id(@comment.photo) %>_new_comment_form")
+
+comment_edit_form.before(updated_comment);
+
+comment_edit_form.hide();
+
+updated_comment.slideDown();
