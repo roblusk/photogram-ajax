@@ -1,0 +1,16 @@
+// available: @comment variable
+
+// Use $() to create HTML method by passing string w/ html
+var added_comment = $("<%= j(render @comment) %>");
+
+// Hide so when it's added it doesn't initially appear
+added_comment.hide();
+
+// use before() jQuery method to insert the comment into the DOM just before the form for a new comment
+$("#<%= dom_id(@comment.photo) %>_new_comment_form").before(added_comment);
+
+//cool animation to show the comment
+added_comment.slideDown();
+
+// Clear the form
+$("#<%= dom_id(@comment.photo) %>_new_comment_form #comment_body").val("");
